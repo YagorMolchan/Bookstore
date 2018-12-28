@@ -1,0 +1,54 @@
+﻿@using WebUI_.Models;
+@using WebUI_.HtmlHelpers;
+@model BooksListViewModel
+
+@{
+    ViewBag.Title = "Книги";
+}
+
+@foreach (var book in Model.Books)
+{
+    @Html.Partial("_BookSummary", book)
+    @*<div class="well">
+            <div class="row">
+                <div class="col-xs-10">
+                    <h3>
+                        <strong>@book.Name</strong>
+                    </h3>
+                    <h4>
+                        <strong>@book.Author</strong>
+                    </h4>
+                </div>
+                <div class="col-xs-2">
+                    <h3>
+                        <strong class="pull-right label label-primary">
+                            @book.Price.ToString("# руб")
+                        </strong>
+                    </h3>
+                </div>
+            </div>
+            @*<div class="col-xs-2">
+                <h3>
+                    <strong id="price" class="pull-right label label-primary">
+                        @book.Price.ToString("# руб")
+                    </strong>
+                </h3>
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    <div class="pull-right">
+                        @Html.HiddenFor(x=>sbyte,O)
+                        @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Добавить в корзину"/>
+                    </div>
+                }
+            </div>*@
+            @*<span class="lead">
+                @book.Description
+            </span>
+        </div>*@
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, genre = Model.CurrentGenre }))
+</div>
+

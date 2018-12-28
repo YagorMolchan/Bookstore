@@ -1,0 +1,13 @@
+﻿#price{
+    margin-bottom:5px;    
+}
+
+#cartTable td{
+    vertical-align:middle;
+}
+
+.navbar-right{
+    float: right !important;
+    margin-right:15px;
+    margin-left:15px;
+}
